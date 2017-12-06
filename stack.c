@@ -23,6 +23,63 @@ int init_stack(Stack *s)
     return 0;
 }
 
+int Stack_expand(Stack *s)
+{
+    if(s->capacity * 2 < MAX_SIZE)
+    {
+        int *new_data = malloc(s->capacity * 2);
+        if(new_data == NULL)
+        {
+            exit(1);
+        }
+        memcpy(new_data, s->data, s->capacity * sizeof(int));
+        s->capacity *= 2;
+        free(s->data);
+        s->data = new_data;
+        return 1;
+    }
+    else if(s->capacity * 2 > MAX_SIZE)
+    {
+        int *new_data = malloc(MAX_SIZE);
+        if(new_data == NULL)
+        {
+            exit(1);
+        }
+        memcpy(new_data, s->data, s->capacity * sizeof(int));
+        s->capacity = MAX_SIZE;
+        free(s->data);
+        s->data = new_data;
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+
+}
+
+int Stack_shrink(Stack *s)
+{
+    if(s->capacity * 2 < MAX_SIZE)
+    {
+        int *new_data = malloc(s->capacity / 2);
+        if(new_data == NULL)
+        {
+            exit(1);
+        }
+        memcpy(new_data, s->data, s->top * sizeof(int));
+        s->capacity /= 2;
+        free(s->data);
+        s->data = new_data;
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+
+}
+
 int size(Stack *s) {
   return s->top;
 }
@@ -73,39 +130,4 @@ void Stack_print(Stack *s) {
   for (i = 1; i <= s->top; i++)
     printf("%d ", s->data[i]);
   printf("\n");
-}
-
-int Stack_expand(Stack *s)
-{
-    if(s->capacity * 2 < MAX_SIZE)
-    {
-        int *new_data = malloc(s->capacity * 2);
-        if(new_data == NULL)
-        {
-            exit(1);
-        }
-        memcpy(new_data, s->data, s->capacity * sizeof(int));
-        s->capacity *= 2;
-        free(s->data);
-        s->data = new_data;
-        return 1;
-    }
-    else if(s->capacity * 2 > MAX_SIZE)
-    {
-        int *new_data = malloc(MAX_SIZE);
-        if(new_data == NULL)
-        {
-            exit(1);
-        }
-        memcpy(new_data, s->data, s->capacity * sizeof(int));
-        s->capacity = MAX_SIZE;
-        free(s->data);
-        s->data = new_data;
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
-
 }
