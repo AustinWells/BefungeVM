@@ -38,6 +38,10 @@ int Stack_expand(Stack *s)
         s->data = new_data;
         return 1;
     }
+    else if(s->capacity == MAX_SIZE)
+    {
+        return 0;
+    }
     else if(s->capacity * 2 > MAX_SIZE)
     {
         int *new_data = malloc(MAX_SIZE);
