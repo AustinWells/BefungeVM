@@ -4,8 +4,18 @@
 
 typedef struct Stack {
   int top;
-  int data[MAX_SIZE];
+  int *data;
+  size_t capacity;
+
 } Stack;
+
+
+int init_stack(Stack *stk)
+{
+    stk->top = 0
+    stk->data = malloc(sizeof(int) * MAX_SIZE);
+    stk->capacity = 0;
+}
 
 int size(Stack *s) {
   return s->top;
