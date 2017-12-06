@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #define MAX_SIZE 32768
-#define INIT_SIZE 1
+#define INIT_SIZE 32
 
 typedef struct Stack {
   int top;
