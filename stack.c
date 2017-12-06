@@ -87,7 +87,7 @@ int Stack_expand(Stack *s)
         memcpy(new_data, s->data, s->capacity * sizeof(int));
         s->capacity *= 2;
         free(s->data);
-        s->data = s->capacity;
+        s->data = new_data;
         return 1;
     }
     else if(s->capacity * 2 > MAX_SIZE)
@@ -100,7 +100,7 @@ int Stack_expand(Stack *s)
         memcpy(new_data, s->data, s->capacity * sizeof(int));
         s->capacity = MAX_SIZE;
         free(s->data);
-        s->data = s->capacity;
+        s->data = new_data;
         return 1;
     }
     else
