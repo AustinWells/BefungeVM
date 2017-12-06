@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #define MAX_SIZE 32768
-#define INIT_SIZE 32
+#define INIT_SIZE 1024
 
 typedef struct Stack {
   int top;
@@ -64,7 +64,7 @@ int Stack_expand(Stack *s)
 
 int Stack_shrink(Stack *s)
 {
-    if(s->top < s->capacity / 4)
+    if(s->top <= (s->capacity / 4))
     {
         int *new_data = malloc(s->capacity / 2);
         if(new_data == NULL)
@@ -81,7 +81,7 @@ int Stack_shrink(Stack *s)
     {
         return 0;
     }
-
+    return 0;
 }
 
 int size(Stack *s) {
