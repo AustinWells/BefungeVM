@@ -12,9 +12,14 @@ typedef struct Stack {
 
 int init_stack(Stack *stk)
 {
-    stk->top = 0
-    stk->data = malloc(sizeof(int) * MAX_SIZE);
+    stk->top = 0;
     stk->capacity = 0;
+    stk->data = malloc(sizeof(int) * MAX_SIZE);
+    if(stk->data == NULL)
+    {
+        return -1;
+    }
+    return 0;
 }
 
 int size(Stack *s) {

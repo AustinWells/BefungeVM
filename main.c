@@ -356,7 +356,7 @@ void init_functions() {
   functions[56] = (void *)str_push_fn;
   functions[57] = (void *)str_push_fn;
   functions[58] = (void *)str_push_fn;
-  
+
   functions[60] = (void *)swap_fn;
   functions[62] = (void *)pcu_fn;
   functions[63] = (void *)hif_fn;
@@ -411,6 +411,9 @@ int main(int argc, char **argv) {
   FILE *fd;
   srand(time(NULL));
   stk = malloc(sizeof(stk));
+  if(init_stack(stk)){
+      exit(1);
+  }
   dim = 8;
   list = malloc(dim*dim);
   functions = malloc(sizeof(intptr_t)*100);
@@ -437,7 +440,7 @@ int main(int argc, char **argv) {
 
   fclose(fd);
   free(line);
-  
+
   val = 0;
   while (val == 0) {
     current = list[pos(crow, ccol)];
