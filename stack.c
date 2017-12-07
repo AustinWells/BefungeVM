@@ -38,7 +38,7 @@ int Stack_expand(Stack *s)
         s->data = new_data;
         return 1;
     }
-    else if(s->capacity == MAX_SIZE)
+    else if(s->top == MAX_SIZE - 1)
     {
         return 0;
     }
