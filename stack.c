@@ -117,7 +117,7 @@ int Stack_pop(Stack *s) {
   else {
     int val = s->data[s->top];
     s->top--;
-    Stack_shrink(s);
+    //Stack_shrink(s);
     return val;
   }
 }
