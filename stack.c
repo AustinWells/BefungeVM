@@ -27,7 +27,7 @@ int Stack_expand(Stack *s)
 {
     if(s->capacity * 2 < MAX_SIZE)
     {
-        int *new_data = malloc(s->capacity * 2);
+        int *new_data = malloc(s->capacity * 2 * sizeof(int));
         if(new_data == NULL)
         {
             exit(1);
@@ -66,7 +66,7 @@ int Stack_shrink(Stack *s)
 {
     if(s->top <= (s->capacity / 4))
     {
-        int *new_data = malloc(s->capacity / 2);
+        int *new_data = malloc((s->capacity / 2) * sizeof(int));
         if(new_data == NULL)
         {
             exit(1);
@@ -81,7 +81,6 @@ int Stack_shrink(Stack *s)
     {
         return 0;
     }
-    return 0;
 }
 
 int size(Stack *s) {
