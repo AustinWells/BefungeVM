@@ -1,11 +1,11 @@
+#include "stack.h"
+
 #include <stdlib.h>
 #include <stdio.h>
-#define MAX_SIZE 32768
 
-typedef struct Stack {
-  int top;
-  int data[MAX_SIZE];
-} Stack;
+#define MAX_SIZE 32768
+#define INIT_SIZE 1024
+
 
 int size(Stack *s) {
   return s->top;

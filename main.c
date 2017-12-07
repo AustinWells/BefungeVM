@@ -3,7 +3,8 @@
 #include <string.h>
 #include <time.h>
 #include <stdint.h>
-#include "stack.c"
+
+#include "stacks/stack.h"
 #include "BFops.h"
 
 #define pos(row, col) ((row)*dim + (col))
