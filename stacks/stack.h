@@ -1,7 +1,7 @@
 typedef struct Stack {
   int top;
   int *data;
-  size_t capacity;
+  int capacity;
 
 } Stack;
 
