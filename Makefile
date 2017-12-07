@@ -14,7 +14,7 @@ mainmake: mkbuild main.c
 	gcc -g -c -o build/driver.o -Wall main.c
 
 mkbuild:
-	mkdir build
+	mkdir -p build
 
 clean:
 	rm -rf build/*.o
