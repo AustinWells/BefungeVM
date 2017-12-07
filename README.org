@@ -4,7 +4,7 @@
   implementation. The main difference between this interpreter and standard interpreters is the grid is dynamically allocated rather than
   using a fixed size grid.
  
-*This VM
+* This VM
   This VM was originally authored by [Josh Wolfe](https://github.com/WolfeCub/BefungeVM). The Main Differences in this fork are; The ability to pick which Stack to link against(speicifed in makefile), additional test and most importantly the dynamically sized stack implimentation.
  
 ** Code examples
