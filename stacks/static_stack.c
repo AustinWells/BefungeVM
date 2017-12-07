@@ -4,7 +4,17 @@
 #include <stdio.h>
 
 #define MAX_SIZE 32768
-#define INIT_SIZE 1024
+
+int init_stack(Stack *s)
+{
+    s->top = 0;
+    s->data = malloc(sizeof(int) * MAX_SIZE);
+    if(s->data == NULL)
+    {
+        return -1;
+    }
+    return 0;
+}
 
 
 int size(Stack *s) {
