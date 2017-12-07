@@ -88,7 +88,7 @@ int size(Stack *s) {
 }
 
 int Stack_empty(Stack *s) {
-  if (size(s) <= 0)
+  if (size(s) < 0)
     return 0;
   else
     return 1;
@@ -117,7 +117,7 @@ int Stack_pop(Stack *s) {
   else {
     int val = s->data[s->top];
     s->top--;
-    //Stack_shrink(s);
+    Stack_shrink(s);
     return val;
   }
 }
