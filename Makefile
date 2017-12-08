@@ -1,3 +1,5 @@
+befunge: dynamic_stack
+
 static_stack: staticmake mainmake
 	gcc build/stack.o build/driver.o -o befunge
 
