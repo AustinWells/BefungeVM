@@ -67,18 +67,18 @@ int Stack_pop(Stack *s) {
     }
     else {
         Node *curr = s->data;
-        Node *curr2 = curr->next;
-        if(curr2 == NULL) {
+        if(curr->next == NULL) {
             int val = curr->val;
             s->data = NULL;
             return val;
         }
         else{
-            for(;curr2->next != NULL; ) {
-                curr->next = NULL;
-                {curr=curr2; curr2 = curr2->next;}
+            for(Node *curr2 = curr->next; curr2 -> next != NULL; curr2 = curr2->next){
+                curr = curr2;
             }
+            curr->next = NULL;
             int val = curr2->val;
+            free(curr2);
             return val;
         }
     }
