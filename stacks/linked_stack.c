@@ -15,61 +15,82 @@ typedef struct Node{
 }Node;
 
 
+struct Stack{
+  Node *data;
+};
+
 int init_stack(Stack *s)
 {
-    s->top = 0;
-    s->data = malloc(sizeof(int) * MAX_SIZE);
-    if(s->data == NULL)
-    {
-        return -1;
-    }
+    s->data = NULL;
     return 0;
 }
 
 
-int size(Stack *s) {
-  return s->top;
+int size(Stack *s){
+  int i = 0;
+  for(Node *curr = s->data; curr != NULL; i++){}
+  return i;
 }
 
 int Stack_empty(Stack *s) {
-  if (size(s) < 0)
-    return 0;
-  else
+    if (s->data == NULL){
+        return 0;
+    }
     return 1;
 }
 
+//there is no max size in a linked list technically
 int Stack_full(Stack *s) {
-  if (size(s) == MAX_SIZE - 1)
-    return 0;
-  else
     return 1;
 }
+
 
 int Stack_push(Stack *s, int new) {
-  if (Stack_full(s) == 0)
-    return -1;
-  else {
-    s->top++;
-    s->data[s->top] = new;
-  }
-  return 0;
+
+    Node new_data = malloc(sizeof(Node));
+    if(new_data == NULL) {
+        return -1;
+    }
+    else {
+        new_data->val = new;
+        new_data->next = NULL;
+        Node *curr = s->data;
+        if(curr != NULL){
+            for(;curr->next != NULL; curr = curr->next){}
+            curr->next = new_data;
+        }
+        else{
+            s->data = new_data;
+        }
+        return 0;
+    }
 }
 
 int Stack_pop(Stack *s) {
   if (Stack_empty(s) == 0)
     return -1;
   else {
-    int val = s->data[s->top];
-    s->top--;
-    return val;
+      Node *curr = s->data;
+      Node *curr2 = curr->next;
+      if(curr2 == NULL) {
+          int val = curr->val;
+          s->data = NULL;
+      }
+      for(;curr2->next = NULL; {curr=curr2; curr2 = curr2->next};){}
+      int val = curr2->val;
+      curr->next = NULL;
+      return val;
   }
 }
 
 int Stack_peek(Stack *s) {
-  if (Stack_empty(s) == 0)
-    return -1;
-  else
-    return s->data[s->top];
+    if (Stack_empty(s) == 0)
+      return -1;
+    else {
+        Node *curr = s->data;
+        for(;curr->next != NULL; curr = curr->next){}
+        return curr->vali;
+    }
 }
 
 void Stack_print(Stack *s) {}
