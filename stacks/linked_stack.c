@@ -75,10 +75,10 @@ int Stack_pop(Stack *s) {
       }
       else{
           for(;curr2->next == NULL; ) {
-              int val = curr2->val;
               curr->next = NULL;
               {curr=curr2; curr2 = curr2->next;}
           }
+          int val = curr2->val;
           return val;
       }
   }
