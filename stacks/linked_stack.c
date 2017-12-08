@@ -62,8 +62,9 @@ int Stack_push(Stack *s, int new) {
 }
 
 int Stack_pop(Stack *s) {
-  if (Stack_empty(s) == 0)
+  if (Stack_empty(s) == 0){
     return -1;
+    }
   else {
       Node *curr = s->data;
       Node *curr2 = curr->next;
@@ -72,12 +73,14 @@ int Stack_pop(Stack *s) {
           s->data = NULL;
           return val;
       }
-      for(;curr2->next == NULL; ){
-          int val = curr2->val;
-          curr->next = NULL;
-          {curr=curr2; curr2 = curr2->next;}
+      else{
+          for(;curr2->next == NULL; ) {
+              int val = curr2->val;
+              curr->next = NULL;
+              {curr=curr2; curr2 = curr2->next;}
+          }
+          return val;
       }
-      return val;
   }
 }
 
