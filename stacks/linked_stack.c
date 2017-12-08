@@ -86,7 +86,7 @@ int Stack_peek(Stack *s) {
     else {
         Node *curr = s->data;
         for(;curr->next != NULL; curr = curr->next){}
-        return curr->vali;
+        return curr->val;
     }
 }
 
