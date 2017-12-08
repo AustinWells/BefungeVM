@@ -2,6 +2,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #define MAX_SIZE 32768
 #define INIT_SIZE 1024
