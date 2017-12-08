@@ -1,13 +1,9 @@
-IFNDEF
-
 #include "stack.h"
 
 #include <stdlib.h>
 #include <stdio.h>
 
 #define MAX_SIZE 32768
-
-
 
 typedef struct Node{
     int val;
