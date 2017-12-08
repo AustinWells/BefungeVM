@@ -43,7 +43,7 @@ int Stack_full(Stack *s) {
 
 int Stack_push(Stack *s, int new) {
 
-    Node new_data = malloc(sizeof(Node));
+    Node *new_data = malloc(sizeof(Node));
     if(new_data == NULL) {
         return -1;
     }
@@ -71,6 +71,7 @@ int Stack_pop(Stack *s) {
       if(curr2 == NULL) {
           int val = curr->val;
           s->data = NULL;
+          return val;
       }
       for(;curr2->next = NULL; {curr=curr2; curr2 = curr2->next};){}
       int val = curr2->val;
