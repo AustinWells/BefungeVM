@@ -1,3 +1,5 @@
+IFNDEF
+
 #include "stack.h"
 
 #include <stdlib.h>
@@ -5,15 +7,18 @@
 
 #define MAX_SIZE 32768
 
-struct Stack{
-  int top;
-  int data[MAX_SIZE];
-};
+
+
+typedef struct Node{
+    int val;
+    struct Node* next;
+}Node;
+
 
 int init_stack(Stack *s)
 {
     s->top = 0;
-    //s->data = malloc(sizeof(int) * MAX_SIZE);
+    s->data = malloc(sizeof(int) * MAX_SIZE);
     if(s->data == NULL)
     {
         return -1;
@@ -67,9 +72,4 @@ int Stack_peek(Stack *s) {
     return s->data[s->top];
 }
 
-void Stack_print(Stack *s) {
-  int i;
-  for (i = 1; i <= s->top; i++)
-    printf("%d ", s->data[i]);
-  printf("\n");
-}
+void Stack_print(Stack *s) {}

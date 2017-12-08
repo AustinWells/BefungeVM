@@ -1,9 +1,4 @@
-typedef struct Stack {
-  int top;
-  int *data;
-  int capacity;
-
-} Stack;
+typedef struct Stack Stack;
 
 int init_stack(Stack *s);
 int size(Stack *s);

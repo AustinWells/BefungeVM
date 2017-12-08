@@ -6,6 +6,11 @@
 #define MAX_SIZE 32768
 #define INIT_SIZE 1024
 
+struct Stack{
+  int top;
+  int *data;
+  int capacity;
+};
 
 
 
