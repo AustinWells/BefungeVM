@@ -62,7 +62,7 @@ int Stack_push(Stack *s, int new) {
 }
 
 int Stack_pop(Stack *s) {
-    printf("%s\n", 'pop');
+    printf("%s\n", "pop");
     if (Stack_empty(s) == 0){
         return -1;
     }
@@ -72,7 +72,7 @@ int Stack_pop(Stack *s) {
             int val = curr->val;
             s->data = NULL;
             free(curr);
-            printf("%s\n", 'pop1');
+            printf("%s\n", "pop1");
             return val;
         }
         else{
@@ -84,7 +84,7 @@ int Stack_pop(Stack *s) {
             curr->next = NULL;
             int val = curr2->val;
             free(curr2);
-            printf("%s\n", 'pop2');
+            printf("%s\n", "pop2");
             return val;
         }
     }
