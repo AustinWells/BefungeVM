@@ -64,6 +64,7 @@ int Stack_push(Stack *s, int new) {
 int Stack_pop(Stack *s) {
     printf("%s\n", "pop");
     if (Stack_empty(s) == 0){
+        printf("%s\n", "empty stack");
         return -1;
     }
     else {
