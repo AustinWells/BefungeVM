@@ -7,6 +7,10 @@
 #include "stacks/stack.h"
 #include "BFops.h"
 
+#ifdef DEBUG
+    #include "debug.h"
+#endif
+
 #define pos(row, col) ((row)*dim + (col))
 #define hash(x) ((x)-32)
 
@@ -445,8 +449,9 @@ int main(int argc, char **argv) {
   val = 0;
   while (val == 0) {
     current = list[pos(crow, ccol)];
-    //Stack_print(stk);
-    //printf("%c  ", current);
+    #ifdef DEBUG
+        printf('%s\n', op_names[hash(current)])
+    #endif
     val = functions[hash(current)]();
   }
 
