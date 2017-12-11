@@ -450,7 +450,7 @@ int main(int argc, char **argv) {
   while (val == 0) {
     current = list[pos(crow, ccol)];
     #ifdef DEBUG
-        printf('%s\n', op_names[hash(current)])
+        printf('%s\n', op_names[hash(current)]);
     #endif
     val = functions[hash(current)]();
   }
