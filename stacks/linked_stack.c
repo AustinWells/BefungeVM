@@ -62,6 +62,7 @@ int Stack_push(Stack *s, int new) {
 }
 
 int Stack_pop(Stack *s) {
+    printf("%s\n", 'pop');
     if (Stack_empty(s) == 0){
         return -1;
     }
@@ -70,27 +71,32 @@ int Stack_pop(Stack *s) {
         if(curr->next == NULL) {
             int val = curr->val;
             s->data = NULL;
+            free(curr);
+            printf("%s\n", 'pop1');
             return val;
         }
         else{
-            Node *curr2;
-            for(curr2 = curr->next; curr2 -> next != NULL; curr2 = curr2->next){
+            Node *curr2 = curr->next;
+            for(;curr2->next != NULL;){
                 curr = curr2;
+                curr2 = curr2->next;
             }
             curr->next = NULL;
             int val = curr2->val;
             free(curr2);
+            printf("%s\n", 'pop2');
             return val;
         }
     }
 }
 
 int Stack_peek(Stack *s) {
-    if (Stack_empty(s) == 0)
-    return -1;
+    if (Stack_empty(s) == 0) {
+        return -1;
+    }
     else {
         Node *curr = s->data;
-        for(;curr->next != NULL; curr = curr->next){}
+            for(;curr->next != NULL; curr = curr->next){}
         return curr->val;
     }
 }
