@@ -26,11 +26,11 @@ char* op_names[] =
     ['&']  = 'READI,'
     ['~']  = "READC",
     ['@']  = "END",
-    [NOOP] = "NOOP",
+    [' '] = "NOOP",
     [';']  = "IGNORE",
 
-    [-99] = "LEFT",
-    [-98] = "RIGHT",
-    [-97] = "UP",
-    [-96] = "DOWN"
+    [29] = "LEFT",
+    [30] = "RIGHT",
+    [31] = "UP",
+    [32] = "DOWN"
 };
