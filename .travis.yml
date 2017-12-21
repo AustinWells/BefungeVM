@@ -1,8 +1,7 @@
-langauge: c
+language: c
+
 compiler: clang
-branches:
-	only:
-	  - master 
+
 install: true
 
 script: make
@@ -11,4 +10,3 @@ notifications:
   email:
     on_success: never
     on_failure: never
-
