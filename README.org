@@ -1,5 +1,5 @@
 
-[![Build Status](https://travis-ci.org/AustinWells/BefungeVM.svg?branch=master)](https://travis-ci.org/AustinWells/BefungeVM)
+[![Build Status](https://travis-ci.org/AustinWells/BefungeVM.svg?branch=master)](https://travis-ci.org/AustinWells/BefungeVM)]
 
 * Befunge VM
   Befunge is a language created by Chris Pressey to be as difficult as possible to compile. It is a 2D reflective programming language.
