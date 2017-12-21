@@ -4,8 +4,10 @@ compiler: clang
 
 install: true
 
-script: make
-
+script: 
+	- make static_stack
+	- make dynamic_stack
+	- make linked_stack
 notifications:
   email:
     on_success: never
