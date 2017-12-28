@@ -435,7 +435,6 @@ int main(int argc, char **argv) {
       line[read-1] = '\0';
       read -= 1;
     }
-
     while (read > dim)
       double_list();
 
