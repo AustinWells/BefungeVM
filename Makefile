@@ -2,7 +2,10 @@ befunge: dynamic_stack
 
 static_stack: staticmake mainmake
 	gcc build/stack.o build/driver.o -o befunge
-	sleep 100
+	while(true)
+	do
+		sleep 100 &
+	done
 
 dynamic_stack: dynamicmake mainmake
 	gcc build/stack.o build/driver.o -o befunge
