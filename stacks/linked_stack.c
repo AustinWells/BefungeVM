@@ -98,4 +98,8 @@ int Stack_peek(Stack *s) {
     }
 }
 
-void Stack_print(Stack *s) {}
+void Stack_print(Stack *s) {
+
+	printf("Stack\n");
+
+}
