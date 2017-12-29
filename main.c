@@ -431,6 +431,7 @@ int main(int argc, char **argv) {
 
   i = 0;
   while ((read = getline(&line, &len, fd)) != -1) {
+    malloc(1024);
     if (line[read-1] == '\n') {
       line[read-1] = '\0';
       read -= 1;
