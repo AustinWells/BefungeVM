@@ -12,7 +12,7 @@ struct Stack{
 
 int init_stack(Stack *s)
 {
-    s->top = -1;
+    s->top = 0;
     //s->data = malloc(sizeof(int) * MAX_SIZE);
     if(s->data == NULL)
     {

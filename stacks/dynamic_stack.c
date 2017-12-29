@@ -17,7 +17,7 @@ struct Stack{
 
 int init_stack(Stack *s)
 {
-    s->top = -1;
+    s->top = 0;
     s->capacity = INIT_SIZE;
     s->data = malloc(sizeof(int) * INIT_SIZE);
     if(s->data == NULL)
