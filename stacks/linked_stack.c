@@ -5,85 +5,71 @@
 
 #define MAX_SIZE 32768
 
-typedef struct Node{
-    int val;
-    struct Node* next;
-}Node;
-
 struct Stack{
-    Node *data;
+  int top;
+  int data[MAX_SIZE];
 };
 
 int init_stack(Stack *s)
 {
-    s->data = NULL;
+    s->top = 0;
+    //s->data = malloc(sizeof(int) * MAX_SIZE);
+    if(s->data == NULL)
+    {
+        return -1;
+    }
     return 0;
 }
 
 
-int size(Stack *s){
-    int i = 0;
-    for(Node *curr = s->data; curr != NULL; i++){}
-    return i;
+int size(Stack *s) {
+  return s->top;
 }
 
 int Stack_empty(Stack *s) {
-    if (s->data == NULL){
-        return 0;
-    }
+  if (size(s) < 0)
+    return 0;
+  else
     return 1;
 }
 
-//there is no max size in a linked list technically
 int Stack_full(Stack *s) {
+  if (size(s) == MAX_SIZE - 1)
+    return 0;
+  else
     return 1;
 }
-
 
 int Stack_push(Stack *s, int new) {
-
-    Node *new_data = malloc(sizeof(Node));
-    if(new_data == NULL) {
-        return -1;
-    }
-    else {
-        new_data->val = new;
-        new_data->next = s->data;
-        s->data = new_data;
-
-        return 0;
-    }
+  if (Stack_full(s) == 0)
+    return -1;
+  else {
+    s->top++;
+    s->data[s->top] = new;
+  }
+  return 0;
 }
 
 int Stack_pop(Stack *s) {
-    if (Stack_empty(s) == 0){
-        return -1;
-    }
-    else {
-        Node *ret = s->data;
-
-        s->data = ret->next;
-        int val = ret->val;
-
-        free(ret);
-        return val;
-    }
+  if (Stack_empty(s) == 0)
+    return -1;
+  else {
+    int val = s->data[s->top];
+    s->top--;
+    return val;
+  }
 }
 
 int Stack_peek(Stack *s) {
-    if (Stack_empty(s) == 0) {
-        return -1;
-    }
-    else {
-        return s->data->val;
-    }
+  if (Stack_empty(s) == 0)
+    return -1;
+  else
+    return s->data[s->top];
 }
 
 void Stack_print(Stack *s) {
-
-    for(Node *curr = s->data ; curr != NULL; curr = curr->next){
-      printf("%d ", curr->val);
-    }
-    printf("\n");
-
+  int i;
+  for (i = 1; i <= s->top; i++)
+    printf("%d ", s->data[i]);
+  printf("\n");
 }
