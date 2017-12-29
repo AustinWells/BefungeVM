@@ -6,7 +6,7 @@ static_stack: staticmake mainmake
 dynamic_stack: dynamicmake mainmake
 	gcc build/stack.o build/driver.o -o befunge
 
-linked_stack: linkedmake debug_mainmake
+linked_stack: linkedmake mainmake
 	gcc build/stack.o build/driver.o -o befunge
 
 staticmake: mkbuild stacks/static_stack.c
