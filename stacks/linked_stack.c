@@ -49,7 +49,6 @@ int Stack_push(Stack *s, int new) {
     else {
         new_data->val = new;
         new_data->next = s->data;
-
         s->data = new_data;
 
         return 0;
@@ -62,8 +61,10 @@ int Stack_pop(Stack *s) {
     }
     else {
         Node *ret = s->data;
+
         s->data = ret->next;
         int val = ret->val;
+
         free(ret);
         return val;
     }
