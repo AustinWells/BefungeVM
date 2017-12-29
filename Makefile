@@ -24,7 +24,6 @@ mainmake: mkbuild main.c
 debug_mainmake: mkbuild main.c
 	gcc -g -c -o build/driver.o -Wall main.c -DDEBUG
 
-
 mkbuild:
 	mkdir -p build
 
