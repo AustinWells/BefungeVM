@@ -48,15 +48,10 @@ int Stack_push(Stack *s, int new) {
     }
     else {
         new_data->val = new;
-        new_data->next = NULL;
-        Node *curr = s->data;
-        if(curr != NULL){
-            for(;curr->next != NULL; curr = curr->next){}
-            curr->next = new_data;
-        }
-        else{
-            s->data = new_data;
-        }
+        new_data->next = s->data;
+
+        s->data = new_data;
+
         return 0;
     }
 }
@@ -66,24 +61,11 @@ int Stack_pop(Stack *s) {
         return -1;
     }
     else {
-        Node *curr = s->data;
-        if(curr->next == NULL) {
-            int val = curr->val;
-            s->data = NULL;
-            free(curr);
-            return val;
-        }
-        else{
-            Node *curr2 = curr->next;
-            for(;curr2->next != NULL;){
-                curr = curr2;
-                curr2 = curr2->next;
-            }
-            curr->next = NULL;
-            int val = curr2->val;
-            free(curr2);
-            return val;
-        }
+        Node *ret = s->data;
+        s->data = ret->next;
+        int val = ret->val;
+        free(ret);
+        return val;
     }
 }
 
@@ -92,9 +74,7 @@ int Stack_peek(Stack *s) {
         return -1;
     }
     else {
-        Node *curr = s->data;
-            for(;curr->next != NULL; curr = curr->next){}
-        return curr->val;
+        return s->data->val;
     }
 }
 
