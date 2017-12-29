@@ -100,7 +100,7 @@ int Stack_peek(Stack *s) {
 
 void Stack_print(Stack *s) {
 
-    for(Node curr = s->data ; curr != NULL; curr = curr->next){
+    for(Node *curr = s->data ; curr != NULL; curr = curr->next){
       printf("%d ", curr->val);
     }
     printf("\n");
