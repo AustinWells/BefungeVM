@@ -81,8 +81,8 @@ int Stack_peek(Stack *s) {
 }
 
 void Stack_print(Stack *s) {
-  int i;
-  for (i = 1; i <= s->top; i++)
-    printf("%d ", s->data[i]);
+  Node *curr;
+  for (curr = s->data; curr != NULL; curr = curr->next)
+    printf("%d ", curr->val);
   printf("\n");
 }
