@@ -61,7 +61,7 @@ int Stack_push(Stack *s, int new) {
     n->val = new;
     n->next = s->data;
     s->data = n;
-    s->top++;
+    //s->top++;
   }
   return 0;
 }
