@@ -5,15 +5,20 @@
 
 #define MAX_SIZE 32768
 
+typedef struct Node {
+	int val;
+	struct Node *next;
+} Node;
+
 struct Stack{
   int top;
-  int data[MAX_SIZE];
+  Node *data;
 };
 
 int init_stack(Stack *s)
 {
     s->top = 0;
-    //s->data = malloc(sizeof(int) * MAX_SIZE);
+    s->data = malloc(sizeof(Node));
     if(s->data == NULL)
     {
         return -1;
@@ -44,8 +49,14 @@ int Stack_push(Stack *s, int new) {
   if (Stack_full(s) == 0)
     return -1;
   else {
+    Node *n = malloc(sizeof(Node));
+    if(n == NULL){
+		return -1;
+    }
+    n->val = new;
+    n->next = s->data;
+    s->data = n;
     s->top++;
-    s->data[s->top] = new;
   }
   return 0;
 }
@@ -54,8 +65,10 @@ int Stack_pop(Stack *s) {
   if (Stack_empty(s) == 0)
     return -1;
   else {
-    int val = s->data[s->top];
-    s->top--;
+    Node *n = s->data;
+    s->data = s->data->next;
+    int val = n->val;
+    free(n);
     return val;
   }
 }
@@ -64,7 +77,7 @@ int Stack_peek(Stack *s) {
   if (Stack_empty(s) == 0)
     return -1;
   else
-    return s->data[s->top];
+    return s->data->val;
 }
 
 void Stack_print(Stack *s) {
