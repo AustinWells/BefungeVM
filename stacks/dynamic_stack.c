@@ -87,7 +87,7 @@ int Stack_shrink(Stack *s)
     }
 }
 
-int size(Stack *s) {
+inline int size(Stack *s) {
   return s->top;
 }
 
