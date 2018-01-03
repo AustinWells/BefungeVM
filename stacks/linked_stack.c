@@ -11,13 +11,13 @@ typedef struct Node {
 } Node;
 
 struct Stack{
-  //int top;
+  int top;
   Node *data;
 };
 
 int init_stack(Stack *s)
 {
-    //s->top = 0;
+    s->top = 0;
     s->data = malloc(sizeof(Node));
     if(s->data == NULL)
     {
@@ -27,13 +27,8 @@ int init_stack(Stack *s)
 }
 
 
-int size(Stack *s) {
-  int i = 0;
-  for(Node *curr = s->data; curr != NULL; curr = curr->next)
-  {
-      i++;
-  }
-  return i;
+inline int size(Stack *s) {
+    return s->top;
 }
 
 int Stack_empty(Stack *s) {
@@ -61,7 +56,7 @@ int Stack_push(Stack *s, int new) {
     n->val = new;
     n->next = s->data;
     s->data = n;
-    //s->top++;
+    s->top++;
   }
   return 0;
 }
@@ -73,6 +68,7 @@ int Stack_pop(Stack *s) {
     Node *n = s->data;
     s->data = s->data->next;
     int val = n->val;
+    s->top--;
     free(n);
     return val;
   }
