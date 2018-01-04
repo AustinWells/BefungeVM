@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define MAX_SIZE 32768
+#define MAX_SIZE ((int) 32768)
 
 typedef struct Node {
 	int val;
@@ -15,8 +15,7 @@ struct Stack{
   Node *data;
 };
 
-int init_stack(Stack *s)
-{
+int init_stack(Stack *s) {
     s->top = 0;
     s->data = malloc(sizeof(Node));
     if(s->data == NULL)
@@ -25,7 +24,6 @@ int init_stack(Stack *s)
     }
     return 0;
 }
-
 
 inline int size(Stack *s) {
     return s->top;
@@ -39,9 +37,6 @@ int Stack_empty(Stack *s) {
 }
 
 int Stack_full(Stack *s) {
-//  if (size(s) == MAX_SIZE - 1)
-//     return 0;
-//  else
     return 1;
 }
 
@@ -65,11 +60,15 @@ int Stack_pop(Stack *s) {
   if (Stack_empty(s) == 0)
     return -1;
   else {
+
     Node *n = s->data;
-    s->data = s->data->next;
     int val = n->val;
+
+    s->data = s->data->next;
     s->top--;
+
     free(n);
+
     return val;
   }
 }
