@@ -4,8 +4,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAX_SIZE 32768
-#define INIT_SIZE 1024
+#define MAX_SIZE ((int)32768)
+#define INIT_SIZE ((int)1024)
 
 struct Stack{
   int top;
