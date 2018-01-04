@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define MAX_SIZE 32768
+#define MAX_SIZE ((int)32768)
 
 struct Stack{
   int top;
